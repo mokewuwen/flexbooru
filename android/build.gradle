@@ -20,24 +20,24 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'io.fabric'
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('.gradle/keystore.properties').newDataInputStream())
+//Properties properties = new Properties()
+//properties.load(project.rootProject.file('.gradle/keystore.properties').newDataInputStream())
 Integer verCode = 'git rev-list HEAD --first-parent --count'.execute().text.trim().toInteger()
 
 android {
     signingConfigs {
-        github {
-            storeFile file('../.gradle/flexbooru.jks')
-            keyAlias properties.getProperty('KEY_ALIAS')
-            keyPassword properties.getProperty('KEY_PASS')
-            storePassword properties.getProperty('STORE_PASS')
-        }
-        play {
-            storeFile file('../.gradle/flexbooru_play.jks')
-            keyAlias properties.getProperty('KEY_ALIAS')
-            keyPassword properties.getProperty('KEY_PASS')
-            storePassword properties.getProperty('STORE_PASS')
-        }
+//        github {
+//            storeFile file('../.gradle/flexbooru.jks')
+//            keyAlias properties.getProperty('KEY_ALIAS')
+//            keyPassword properties.getProperty('KEY_PASS')
+//            storePassword properties.getProperty('STORE_PASS')
+//        }
+//        play {
+//            storeFile file('../.gradle/flexbooru_play.jks')
+//            keyAlias properties.getProperty('KEY_ALIAS')
+//            keyPassword properties.getProperty('KEY_PASS')
+//            storePassword properties.getProperty('STORE_PASS')
+//        }
     }
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
@@ -63,7 +63,7 @@ android {
             shrinkResources true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.play
+//            signingConfig signingConfigs.play
         }
         debug {
             applicationIdSuffix '.debug'
